@@ -43,4 +43,28 @@
 # READ	retrieve value from variable
 # IF / ELSE IF / ELSE	show conditional branches in logic
 # WHILE	show looping logic
-#END	end of the program
+# END	end of the program
+
+# We can use the above keywords to act as a pseudo programming language, but one that's still written in English, allowing us to be a little more relaxed about the precision of the syntax. Here's a stab at translating to formal pseudo-code:
+
+# START
+
+# Given a collection of integers called "numbers"
+
+# SET iterator = 1
+# SET saved_number = value within numbers collection at space 1
+
+# WHILE iterator <= length of numbers
+#  SET current_number = value within numbers collection at space "iterator"
+#  IF saved_number >= current_number
+#    go to the next iteration
+#  ELSE
+#    saved_number = current_number
+
+#  iterator = iterator + 1
+
+# PRINT saved_number
+
+# END
+
+# Note that we're using PRINT to show the final value that should be returned. This translation almost looks like actual program code, but it's not. The advantage of this additional step is to give a lot more structure to the pseudo-code, and to allow us to think at a more detailed level, yet still not have to worry about a programming language syntax. Though detailed it may be, this pseudo-code still suffers from the same problem -- we can't verify that this logic is actually sound. Finally, to test the logic, we need to translate it into program code.
