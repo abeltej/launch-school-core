@@ -68,3 +68,51 @@
 # END
 
 # Note that we're using PRINT to show the final value that should be returned. This translation almost looks like actual program code, but it's not. The advantage of this additional step is to give a lot more structure to the pseudo-code, and to allow us to think at a more detailed level, yet still not have to worry about a programming language syntax. Though detailed it may be, this pseudo-code still suffers from the same problem -- we can't verify that this logic is actually sound. Finally, to test the logic, we need to translate it into program code.
+
+
+
+# Translating Pseudo-Code to Program Code
+
+# We're using Ruby, so here's a stab at it in Ruby. Note that we eschew explicit iteration over the more idiomatic implicit iteration using each. That's a language-specific choice. If we were to write this program in JavaScript, Python or PHP, we may choose to explicitly iterate, like in our pseudo-code.
+
+def find_greatest(numbers)
+  saved_number = numbers[0]
+
+  numbers.each do |num|
+    if saved_number >= num
+      next
+    else
+      saved_number = num
+    end
+  end
+
+  saved_number
+end
+
+# If we run the above code, we can verify that our pseudo-code logic works!
+
+# Now, let's look at the working code, and start to improve it from a lower layer -- at the programming language level. For instance, what should we do if numbers is nil? Perhaps we can use a guard clause that returns nil, like this: return if numbers.nil?. We also check whether saved_number is nil on every iteration. Now that we have the general logic and code in place, there are other small improvements we can make.
+
+# In this example, the method we wanted to write was fairly simple. We were able to write a few lines of pseudo-code, move it to a more formal pseudo-code, and then translate it into Ruby. But most problems you encounter will be more difficult than this example. You won't be able to take the same approach. That is, you won't be able to detail out the entire problem first in pseudo-code, then translate all of it into Ruby. If you did, you'd likely discover that a lot of your logic or assumptions in the pseudo-code is incorrect, and you'll need to make some changes that will ripple across the entire program, forcing you to start over time and again. Remember, pseudo-code is a guess at the solution and there's no verification that the logic is correct. Only when you translate it to actual programming code is the logic being verified.
+
+# For more sophisticated problems, we need to take a piecemeal approach to applying pseudo-code, then translating that to Ruby code to verify the logic is correct, then moving on to the next piece in the problem. Step by step, we can slowly load the problem into our brain, verifying the logic each step along the way.
+
+#We'll show you how to use flowcharts to help with this in the next assignment. For now, do a few practice rounds on using pseudo-code to guide your problem solving logic.
+
+# For example, write out pseudo-code (both casual and formal) that does the following:
+
+# a method that returns the sum of two integers
+
+# a method that takes an array of strings, and returns a string that is all those strings concatenated together
+
+# a method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element. For instance:
+everyOther([1,4,7,2,5]) # => [1,7,5]
+
+# a method that determines the index of the 3rd occurrence of a given character in a string. For instance, if the given character is 'x' and the string is 'axbxcdxex', the method should return 6 (the index of the 3rd 'x'). If the given character does not occur at least 3 times, return nil.
+
+# a method that takes two arrays of numbers and returns the result of merging the arrays. The elements of the first array should become the elements at the even indexes of the returned array, while the elements of the second array should becoome the elements at the odd indexes. For instance:
+merge([1, 2, 3], [4, 5, 6]) # => [1, 4, 2, 5, 3, 6]
+
+# You may assume that both array arguments have the same number of elements.
+
+# You don't need to write any Ruby code here; just practice writing the logic in English.
