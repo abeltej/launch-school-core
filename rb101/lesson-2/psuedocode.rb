@@ -89,15 +89,6 @@ def find_greatest(numbers)
   saved_number
 end
 
-# If we run the above code, we can verify that our pseudo-code logic works!
-
-# Now, let's look at the working code, and start to improve it from a lower layer -- at the programming language level. For instance, what should we do if numbers is nil? Perhaps we can use a guard clause that returns nil, like this: return if numbers.nil?. We also check whether saved_number is nil on every iteration. Now that we have the general logic and code in place, there are other small improvements we can make.
-
-# In this example, the method we wanted to write was fairly simple. We were able to write a few lines of pseudo-code, move it to a more formal pseudo-code, and then translate it into Ruby. But most problems you encounter will be more difficult than this example. You won't be able to take the same approach. That is, you won't be able to detail out the entire problem first in pseudo-code, then translate all of it into Ruby. If you did, you'd likely discover that a lot of your logic or assumptions in the pseudo-code is incorrect, and you'll need to make some changes that will ripple across the entire program, forcing you to start over time and again. Remember, pseudo-code is a guess at the solution and there's no verification that the logic is correct. Only when you translate it to actual programming code is the logic being verified.
-
-# For more sophisticated problems, we need to take a piecemeal approach to applying pseudo-code, then translating that to Ruby code to verify the logic is correct, then moving on to the next piece in the problem. Step by step, we can slowly load the problem into our brain, verifying the logic each step along the way.
-
-#We'll show you how to use flowcharts to help with this in the next assignment. For now, do a few practice rounds on using pseudo-code to guide your problem solving logic.
 
 # For example, write out pseudo-code (both casual and formal) that does the following:
 
