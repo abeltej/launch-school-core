@@ -29,3 +29,18 @@
 #This is where pseudo-code comes in to play. Using pseudo-code helps us focus on the logical problem domain layer, without dragging us down to the programming language layer.
 
 #The problem with pseudo-code, however, is that we cannot verify its logic. The above pseudo-code that we wrote earlier, for example, seems about right. But how can we be certain? In order to verify its logic, we have to translate the pseudo-code into programming code. This is also where you can focus on programming language syntax issues without having it interrupt your flow.
+
+#Formal Pseudo-Code
+#Before we can take our pseudo-code and translate it to program code, we need to first formalize the pseudo-code a little bit more. We'll still use English, but we'll use some keywords to help us break down the program logic into concrete commands, which will then make translating to program code much easier.
+
+#We'll use the below keywords to assist us, along with their meaning.
+
+# keyword	meaning
+# START	start of the program
+# SET	sets a variable we can use for later
+# GET	retrieve input from user
+# PRINT	displays output to user
+# READ	retrieve value from variable
+# IF / ELSE IF / ELSE	show conditional branches in logic
+# WHILE	show looping logic
+#END	end of the program
