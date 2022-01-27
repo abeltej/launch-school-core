@@ -16,3 +16,4 @@ Kernel.puts("What operation would you like to perform? 1. add 2. subtract 3. mul
 operator = Kernel.gets().chomp()
 
 if operator == '1'
+  
