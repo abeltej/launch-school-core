@@ -23,7 +23,35 @@ elsif operator == "2"
 elsif operator == "3"
   result = number1.to_i() * number2.to_i()
 else operator == "4"
-  result = number1.to_i() / number2.to_i()
+  result = number1.to_f() / number2.to_f()
 end
 
 Kernel.puts("The results is #{result}")
+
+
+#Tips
+
+#In a conditional, take care to make sure you're doing an equality comparison (==), as opposed to an assignment (=).
+if operator == '1'  # ok
+...
+if operator = '1'   # will always return true
+
+#Pay attention to what object you're comparing against. It makes a huge difference.
+if operator == 1
+# vs
+if operator == '1'
+
+#Understand the concept of "integer division".
+
+#The String#to_i and String#to_f methods are very handy, but understand their limitations. (Hint: read their documentation.)
+
+#Local variables initialized within an if can be accessed outside of the if.
+
+#In Ruby, if expressions can return a value.
+
+answer = if true
+           'yes'
+         else
+           'no'
+         end
+Kernel.puts(answer)       # => yes
