@@ -94,6 +94,10 @@ end
 
 # a method that returns the sum of two integers
 
+# Given two integers 
+# Set result = two integers added 
+# print result 
+
 # a method that takes an array of strings, and returns a string that is all those strings concatenated together
 
 # a method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element. For instance:
