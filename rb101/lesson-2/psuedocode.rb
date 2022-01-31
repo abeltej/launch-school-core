@@ -106,6 +106,13 @@ end
 
 
 # a method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element. For instance:
+
+# Given an array of integers 
+# loop over array
+# set iterator = 1 
+# skip over even #s
+# set results = new array 
+
 everyOther([1,4,7,2,5]) # => [1,7,5]
 
 # a method that determines the index of the 3rd occurrence of a given character in a string. For instance, if the given character is 'x' and the string is 'axbxcdxex', the method should return 6 (the index of the 3rd 'x'). If the given character does not occur at least 3 times, return nil.
