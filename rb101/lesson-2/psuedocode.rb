@@ -100,6 +100,11 @@ end
 
 # a method that takes an array of strings, and returns a string that is all those strings concatenated together
 
+# Given an array of strings 
+# Set results = the strings joined together 
+# print results
+
+
 # a method that takes an array of integers, and returns a new array with every other element from the original array, starting with the first element. For instance:
 everyOther([1,4,7,2,5]) # => [1,7,5]
 
