@@ -29,3 +29,13 @@ Kernel.puts("hello world")
 # 1  Style/StringLiterals
 # --
 # 2  Total
+
+# This output shows us total offenses per cop, and the total offenses in our code. It also shows us that the FrozenStringLiteralComment and StringLiterals cops in the Style department were the cops that complained about our hello.rb.
+
+# Configuring Rubocop
+
+# The previous offenses seems overly strict for our project. We want to not enforce those particular rules -- how do we tell Rubocop to ignore the Style/FrozenStringLiteralComment and Style/StringLiterals cops? The answer is through a configuration file.
+
+# Rubocop will look for a .rubocop.yml file in the directory it's executed in and apply the configuration settings. Notice that it's a hidden file, so it must start with a .. If it doesn't find a .rubocop.yml file in the current directory, it will recursively look in each parent of the current directory until either one is found or it runs out of parent directories to search. If none is found, no additional configuration settings will be applied and it will use its default rules.
+
+# In practice, nested .rubocop.yml files are confusing, so best to just use one in your project's root directory.
