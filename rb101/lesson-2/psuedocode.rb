@@ -121,5 +121,3 @@ everyOther([1,4,7,2,5]) # => [1,7,5]
 merge([1, 2, 3], [4, 5, 6]) # => [1, 4, 2, 5, 3, 6]
 
 # You may assume that both array arguments have the same number of elements.
-
-# You don't need to write any Ruby code here; just practice writing the logic in English.
