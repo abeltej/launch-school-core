@@ -17,3 +17,27 @@ puts f.path
 # calls the instance method File#path since we're calling it on an object of the File class, namely f.
 
 # Pay attention when reading the documentation; make sure you are using a class method when you need a class method, and an instance method when you need an instance method.
+
+# Optional Arguments Redux
+
+# Assume you have the following code:
+require 'date'
+
+puts Date.civil
+puts Date.civil(2016)
+puts Date.civil(2016, 5)
+puts Date.civil(2016, 5, 13)
+
+# What will each of the 4 puts statements print?
+
+# puts Date.civil
+-4712-01-01
+
+# puts Date.civil(2016)
+2016-01-01
+
+# puts Date.civil(2016, 5)
+2016-05-01
+
+# puts Date.civil(2016, 5, 13)
+2016-05-13
