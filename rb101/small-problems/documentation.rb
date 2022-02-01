@@ -18,6 +18,7 @@ puts f.path
 
 # Pay attention when reading the documentation; make sure you are using a class method when you need a class method, and an instance method when you need an instance method.
 
+
 # Optional Arguments Redux
 
 # Assume you have the following code:
@@ -41,3 +42,16 @@ puts Date.civil(2016, 5, 13)
 
 # puts Date.civil(2016, 5, 13)
 2016-05-13
+
+
+# Default Arguments in the Middle
+
+# Consider the following method and a call to that method:
+
+def my_method(a, b = 2, c = 3, d)
+  p [a, b, c, d]
+end
+
+my_method(4, 5, 6)
+
+# Use the ruby documentation to determine what this code will print.
