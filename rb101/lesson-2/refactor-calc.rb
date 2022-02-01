@@ -1,5 +1,10 @@
 # Walk-through: Refactoring Calculator
 
+def prompt(message)
+  Kernel.puts("=> #{message}")
+  
+end
+
 Kernel.puts("Welcome to Calculator!")
 Kernel.puts ("Whats the first number")
 number1 = Kernel.gets().chomp()
