@@ -113,3 +113,21 @@ fetch(index) { |index| block } → obj
 # Reading the documentation, we see that #fetch simply returns the element of an Array by its index, but it also does bounds checking (which Array#[] does not); that is, it checks whether the specified element actually exists before fetching it, and raises an error if it does not exist. The second and third forms of #fetch prevent an error from occurring if the indicated element does not exist by providing a default value or a block that returns an appropriate value.
 
 # With this basic overview, we can tell that the first puts should print an error message; the second form returns the value of the default argument if the element doesn't exist; the third form returns the value returned by the block. So, the first puts raises an IndexError, the second prints beats me, while the third prints 49.
+
+
+# Keyword Arguments
+
+# What does this code print?
+5.step(to: 10, by: 3) { |value| puts value }
+
+# 5
+# 8
+
+# Finding the documentation for #step can be a bit difficult since there are different types of number classes in ruby. Even a Google search will probably turn up a lot of false leads. If you need a method that works with numbers, the following classes are worth searching through:
+
+# Integer
+# Float
+# Numeric
+# Math
+
+# Integer and Float inherit from Numeric. Numeric is basically the superclass of all numeric types, while Math is a module that supplies a lot of number crunching functionality. Choosing the right documentation to look at is difficult, so, for now, be aware that you may have to look in all these locations.
