@@ -7,9 +7,16 @@ end
 
 prompt("Welcome to Calculator!")
 
+loop do 
+  prompt("Whats the first number?")
+  number1 = Kernel.gets().chomp()
 
-prompt("Whats the first number?")
-number1 = Kernel.gets().chomp()
+  if valid_number?(number1)
+    break
+  else
+    prompt("Hmm...")
+  end
+end
 
 prompt("Whats the second number?")
 number2 = Kernel.gets().chomp()
