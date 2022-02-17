@@ -2,8 +2,9 @@
 
 def prompt(message)
   Kernel.puts("=> #{message}")
-  
 end
+
+def valid_number?(num)
 
 prompt("Welcome to Calculator!")
 
@@ -14,7 +15,7 @@ loop do
   if valid_number?(number1)
     break
   else
-    prompt("Hmm...")
+    prompt("Hmm... that does't look like a valid number?")
   end
 end
 
