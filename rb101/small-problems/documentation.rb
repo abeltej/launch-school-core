@@ -152,3 +152,14 @@ puts s.public_methods.inspect
 #solution
 s = 'abc'
 puts s.public_methods(false).inspect
+
+# Included Modules
+# Use irb to run the following code:
+a = [5, 9, 3, 11]
+puts a.min
+
+# Find the documentation for the #min method and change the above code to print the two smallest values in the Array.
+a = [5, 9, 3, 11]
+puts a.min(2)
+
+# Once you have the Enumerable documentation in front of you, scroll down to the documentation for #min. You can see from this documentation that #min takes an optional argument that specifies how many values it should return -- note that you have to look at the examples to learn what the optional argument does. In our case, we want two values, so we alter our call to #min by adding the argument 2.
