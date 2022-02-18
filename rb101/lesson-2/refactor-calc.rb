@@ -57,7 +57,8 @@ loop do # main loop
     if valid_number?(number2)
       break
     else
-      prompt("Hmm... that doesn't look like a valid number?")
+      prompt("Hmm... that doesn't look like a valid number
+        ")
     end
   end
 
@@ -83,7 +84,7 @@ loop do # main loop
   end
 
   prompt("#{operation_to_message(operator)}  the two numbers...")
-  
+
   result = case operator
               when '1' 
                 number1.to_i() + number2.to_i()
@@ -101,4 +102,5 @@ loop do # main loop
   answer = Kernel.gets().chomp()
   break unless answer.downcase().start_with?('y')
 end
+
 prompt("Thank you for using the calculator! ")
