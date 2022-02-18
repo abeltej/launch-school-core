@@ -1,5 +1,4 @@
 # Walk-through: Refactoring Calculator
-
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
@@ -20,8 +19,6 @@ def operation_to_message(op)
     'Dividing'
   end
 end 
-
-
 
 prompt("Welcome to Calculator! Enter your name:")
 
@@ -64,29 +61,29 @@ loop do # main loop
     end
   end
 
-prompt("What operation would you like to perform? 1. add 2. subtract 3. multiple 4. divide")
-operator_prompt = <<-MSG 
-  what operation would you like to perform?
-  1) add
-  2) subtract
-  3) multiply 
-  4) divide 
-  MSG
+  operator_prompt = <<-MSG 
+    what operation would you like to perform?
+    1) add
+    2) subtract
+    3) multiply 
+    4) divide 
+    MSG
 
-prompt(operator_prompt)
-operator = ''
+  prompt(operator_prompt)
 
-loop do 
-  operator = Kernel.gets().chomp()
+  operator = ''
+  loop do 
+    operator = Kernel.gets().chomp()
   
-  if %w( 1 2 3 4).include?(operator)
-    break
-  else 
-    prompt("Must choose 1, 2, 3 or 4")
+    if %w( 1 2 3 4).include?(operator)
+      break
+    else 
+      prompt("Must choose 1, 2, 3 or 4")
+    end
   end
-end
 
-  prompt("#{operation_to_message(operator)} adding the two numbers...")
+  prompt("#{operation_to_message(operator)}  the two numbers...")
+  
   result = case operator
               when '1' 
                 number1.to_i() + number2.to_i()
