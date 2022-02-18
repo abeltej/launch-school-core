@@ -120,6 +120,7 @@ fetch(index) { |index| block } → obj
 # What does this code print?
 5.step(to: 10, by: 3) { |value| puts value }
 
+# Solution
 # 5
 # 8
 
