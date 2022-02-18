@@ -163,3 +163,13 @@ a = [5, 9, 3, 11]
 puts a.min(2)
 
 # Once you have the Enumerable documentation in front of you, scroll down to the documentation for #min. You can see from this documentation that #min takes an optional argument that specifies how many values it should return -- note that you have to look at the examples to learn what the optional argument does. In our case, we want two values, so we alter our call to #min by adding the argument 2.
+
+# Down the Rabbit Hole
+# In a very early assignment at Launch School, you are tasked with writing a program that loads some text messages from a YAML file. We do this with YAML::load_file:
+
+require 'yaml'
+MESSAGES = YAML.load_file('calculator_messages.yml')
+
+# Find the documentation for YAML::load_file.
+
+# The key here is the reference to Psych. If you go back to the Standard Library API page and click on psych, you see a long list of Psych-related classes. Unfortunately, that long list makes a quest for a method named ::load_file somewhat daunting.
