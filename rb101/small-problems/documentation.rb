@@ -142,3 +142,13 @@ step(by: step, to: limit) { |i| block } → self
 # We can also see that #step takes a loop in this first form, and that it will execute the block for each value in the iteration.
 
 # Given all this information, we can see that the code will print 5 on its first iteration, 8 on the second iteration, and then quit because 11 > 10
+
+
+# Parent Class
+# Use irb to run the following code:
+s = 'abc'
+puts s.public_methods.inspect
+
+#solution
+s = 'abc'
+puts s.public_methods(false).inspect
