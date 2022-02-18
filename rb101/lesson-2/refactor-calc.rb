@@ -4,6 +4,10 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+def valid_number?(num)
+  num.to_i() != 0
+end
+
 def operation_to_message(op)
   case op
   when '1'
@@ -16,9 +20,8 @@ def operation_to_message(op)
     'Dividing'
   end
 end 
-def valid_number?(num)
-  num.to_i() != 0
-end
+
+
 
 prompt("Welcome to Calculator! Enter your name:")
 
@@ -27,7 +30,7 @@ loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt("make sure to yse a valid name.")
+    prompt("make sure to use a valid name.")
   else
     break
   end
@@ -57,7 +60,7 @@ loop do # main loop
     if valid_number?(number2)
       break
     else
-      prompt("Hmm... that does't look like a valid number?")
+      prompt("Hmm... that doesn't look like a valid number?")
     end
   end
 
