@@ -11,6 +11,10 @@ def integer?(input)
   input.to_i.to_s == input # This isn't perfect, however, because while "0" will return true, if we input "00", this method will return false.
 end
 
+def integer?(input)
+  /^-?\d+$/.match(input) # use regex. Slightly more complex, but we're using the \d regular expression to test against all digits. The ^ means start of string, the + means "one or more" (of the preceding matcher), and the $ means end of string. Therefore, it has to be an integer, and a float, like 4.5 won't match. When there's a match, the match method will return a MatchData object, which will evaluate to true. When there's no match, it'll return nil, which will evaluate to false.
+end
+
 def operation_to_message(op)
   case op
   when '1'
