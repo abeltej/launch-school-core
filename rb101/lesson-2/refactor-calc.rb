@@ -7,6 +7,10 @@ def valid_number?(num)
   num.to_i() != 0
 end
 
+def integer?(input)
+  input.to_i.to_s == input # This isn't perfect, however, because while "0" will return true, if we input "00", this method will return false.
+end
+
 def operation_to_message(op)
   case op
   when '1'
