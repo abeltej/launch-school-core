@@ -15,6 +15,10 @@ def integer?(input)
   /^-?\d+$/.match(input) # use regex. Slightly more complex, but we're using the \d regular expression to test against all digits. The ^ means start of string, the + means "one or more" (of the preceding matcher), and the $ means end of string. Therefore, it has to be an integer, and a float, like 4.5 won't match. When there's a match, the match method will return a MatchData object, which will evaluate to true. When there's no match, it'll return nil, which will evaluate to false.
 end
 
+def integer?(input)
+  Integer(input) rescue false # use built-in conversion method. In Ruby, there's a method called Kernel#Integer that will convert parameters to the method into an integer object. It will, however, raise a TypeError if the input is not a valid integer, so you'll have to handle that. Note: yes, that's a capitalized method in Ruby -- fortunately, that doesn't happen often.
+end
+
 def operation_to_message(op)
   case op
   when '1'
