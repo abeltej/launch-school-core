@@ -34,8 +34,8 @@ loop do
 
   loan_amount = ''
   loop do
-    prompt("What is your loan amount:")
-    loan_amount = Kernel.gets().chomp
+    prompt("What is your loan amount:     (6% = .06)")
+    loan_amount = Kernel.gets().chomp.to_f()
     if number?(loan_amount)
       break
     else
@@ -43,21 +43,22 @@ loop do
     end
   end
 
-  monthly_interest_rate = ''
+  annual_interest_rate = ''
   loop do
-    prompt("What is your monthly interest rate:")
-    monthly_interest_rate = Kernel.gets().chomp
-    if number?(monthly_interest_rate)
+    prompt("What is your annual interest rate:")
+    annual_interest_rate = Kernel.gets().chomp.to_f()
+    if number?(annual_interest_rate)
       break
     else
       prompt("Hmm... that does't look like a valid number?")
     end
   end
+  monthly_interest_rate = annual_interest_rate / 12
 
   loan_duration_months = ''
   loop do
     prompt("What is your loan duration in months:")
-    loan_duration_months = Kernel.gets().chomp
+    loan_duration_months = Kernel.gets().chomp.to_f()
     if number?(monthly_interest_rate)
       break
     else
