@@ -39,7 +39,7 @@ loop do
     if number?(loan_amount)
       break
     else
-      prompt("Hmm... that does't look like a valid number?")
+      prompt("Hmm... that does't look like a positive number?")
     end
   end
 
@@ -65,9 +65,7 @@ loop do
     end
   end
 
-  monthly_payment = ''
-  def loan_calculation(monthly_payment)
-    monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 +  j)**(-loan_duration_months)))
-  end
+ monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 +  monthly_interest_rate)**(-loan_duration_months)))
+
   prompt("Your monthly payment is #{monthly_payment}")
 end
