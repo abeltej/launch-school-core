@@ -4,7 +4,7 @@ def prompt(message)
 end
 
 def valid_number?(num)
-  num.to_i() != 0
+  num.to_i() != 0 #  It's not fully accurate, as you cannot enter a 0
 end
 
 def integer?(input)
