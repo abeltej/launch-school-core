@@ -43,7 +43,7 @@ def float?(input)
 end
 
 def operation_to_message(op)
-  case op
+  word = case op
   when '1'
     'Adding'
   when '2'
@@ -53,6 +53,10 @@ def operation_to_message(op)
   when '4'
     'Dividing'
   end
+
+  x = "a random line of code"
+
+  word # If we wanted to add code after the case statement, we would need to save the return value of the case into a variable, then make sure to return that variable, or that variable must be the last line in the method.
 end 
 
 prompt("Welcome to Calculator! Enter your name:")
