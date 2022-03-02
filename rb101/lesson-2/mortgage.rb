@@ -34,7 +34,7 @@ loop do
 
   loan_amount = ''
   loop do
-    prompt("What is your loan amount:     (6% = .06)")
+    prompt("What is your loan amount:")
     loan_amount = Kernel.gets().chomp.to_f()
     if number?(loan_amount)
       break
@@ -45,7 +45,7 @@ loop do
 
   annual_interest_rate = ''
   loop do
-    prompt("What is your annual interest rate:")
+    prompt("What is your annual interest rate:  (6% = .06)")
     annual_interest_rate = Kernel.gets().chomp.to_f()
     if number?(annual_interest_rate)
       break
@@ -67,6 +67,7 @@ loop do
   end
 
  monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 +  monthly_interest_rate)**(-loan_duration_months)))
-
-  prompt("Your monthly payment is #{monthly_payment}")
+#  prompt("Your monthly payment is #{monthly_payment}")
+ prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
+ break
 end
