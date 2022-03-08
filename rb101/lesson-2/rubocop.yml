@@ -51,6 +51,7 @@ Style/DoubleNegation:
 Layout/EmptyLineBetweenDefs:
   Enabled: true
   AllowAdjacentOneLineDefs: true
+  EnforcedStyle: lf
 
 Style/EmptyLiteral:
   Description: Prefer literals to Array.new/Hash.new/String.new.
