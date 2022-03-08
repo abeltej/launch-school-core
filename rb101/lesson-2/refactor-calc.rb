@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 # Walk-through: Refactoring Calculator
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def valid_number?(num)
-  num.to_i() != 0 #  It's not fully accurate, as you cannot enter a 0
+  num.to_i != 0 #  It's not fully accurate, as you cannot enter a 0
 end
 
 def integer?(input)
@@ -16,7 +18,10 @@ def integer?(input)
 end
 
 def integer?(input)
-  Integer(input) rescue false # use built-in conversion method. In Ruby, there's a method called Kernel#Integer that will convert parameters to the method into an integer object. It will, however, raise a TypeError if the input is not a valid integer, so you'll have to handle that. Note: yes, that's a capitalized method in Ruby -- fortunately, that doesn't happen often.
+  Integer(input)
+rescue StandardError
+  false
+  # use built-in conversion method. In Ruby, there's a method called Kernel#Integer that will convert parameters to the method into an integer object. It will, however, raise a TypeError if the input is not a valid integer, so you'll have to handle that. Note: yes, that's a capitalized method in Ruby -- fortunately, that doesn't happen often.
 end
 
 def number?(input)
@@ -39,34 +44,37 @@ def float?(input)
 end
 
 def float?(input)
-  Float(input) rescue false # use the Kernel#Float method, which is analogous to the Kernel#Integer method from earlier. Just like that method, Float also raises an exception if you don't give it a valid float, so you have to handle it. Note: trailing rescue is a "code smell", so be aware of that. In this specific instance, it's ok, but don't fall into a habit of suppressing errors this way.
+  Float(input)
+rescue StandardError
+  false
+  # use the Kernel#Float method, which is analogous to the Kernel#Integer method from earlier. Just like that method, Float also raises an exception if you don't give it a valid float, so you have to handle it. Note: trailing rescue is a "code smell", so be aware of that. In this specific instance, it's ok, but don't fall into a habit of suppressing errors this way.
 end
 
 def operation_to_message(op)
   word = case op
-  when '1'
-    'Adding'
-  when '2'
-    'Subtracting'
-  when '3'
-    "Multiplying"
-  when '4'
-    'Dividing'
+         when '1'
+           'Adding'
+         when '2'
+           'Subtracting'
+         when '3'
+           'Multiplying'
+         when '4'
+           'Dividing'
   end
 
-  x = "a random line of code"
+  x = 'a random line of code'
 
   word # If we wanted to add code after the case statement, we would need to save the return value of the case into a variable, then make sure to return that variable, or that variable must be the last line in the method.
-end 
+end
 
-prompt("Welcome to Calculator! Enter your name:")
+prompt('Welcome to Calculator! Enter your name:')
 
 name = ''
-loop do 
-  name = Kernel.gets().chomp()
+loop do
+  name = Kernel.gets.chomp
 
-  if name.empty?()
-    prompt("make sure to use a valid name.")
+  if name.empty?
+    prompt('make sure to use a valid name.')
   else
     break
   end
@@ -75,11 +83,10 @@ end
 prompt("hi #{name}")
 
 loop do # main loop
-
   number1 = ''
-  loop do 
-    prompt("Whats the first number?")
-    number1 = Kernel.gets().chomp()
+  loop do
+    prompt('Whats the first number?')
+    number1 = Kernel.gets.chomp
 
     if valid_number?(number1)
       break
@@ -90,8 +97,8 @@ loop do # main loop
 
   number2 = ''
   loop do
-    prompt("Whats the second number?")
-    number2 = Kernel.gets().chomp()
+    prompt('Whats the second number?')
+    number2 = Kernel.gets.chomp
 
     if valid_number?(number2)
       break
@@ -101,45 +108,45 @@ loop do # main loop
     end
   end
 
-  operator_prompt = <<-MSG 
+  operator_prompt = <<-MSG
     what operation would you like to perform?
     1) add
     2) subtract
     3) multiply 
     4) divide 
-    MSG
+  MSG
 
   prompt(operator_prompt)
 
   operator = ''
-  loop do 
-    operator = Kernel.gets().chomp()
-  
-    if %w( 1 2 3 4).include?(operator)
+  loop do
+    operator = Kernel.gets.chomp
+
+    if %w[1 2 3 4].include?(operator)
       break
-    else 
-      prompt("Must choose 1, 2, 3 or 4")
+    else
+      prompt('Must choose 1, 2, 3 or 4')
     end
   end
 
   prompt("#{operation_to_message(operator)}  the two numbers...")
 
   result = case operator
-              when '1' 
-                number1.to_i() + number2.to_i()
-              when '2' 
-                number1.to_i() - number2.to_i()
-              when '3' 
-                number1.to_i() * number2.to_i()
-              when '4' 
-                number1.to_f() / number2.to_f()
+           when '1'
+             number1.to_i + number2.to_i
+           when '2'
+             number1.to_i - number2.to_i
+           when '3'
+             number1.to_i * number2.to_i
+           when '4'
+             number1.to_f / number2.to_f
   end
 
   prompt("The results is #{result}")
 
-  prompt("Do you want to perform another calculation? ( Y to calculate again)") 
-  answer = Kernel.gets().chomp()
-  break unless answer.downcase().start_with?('y')
+  prompt('Do you want to perform another calculation? ( Y to calculate again)')
+  answer = Kernel.gets.chomp
+  break unless answer.downcase.start_with?('y')
 end
 
-prompt("Thank you for using the calculator! ")
+prompt('Thank you for using the calculator! ')
