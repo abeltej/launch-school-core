@@ -24,7 +24,7 @@ end
 loop do
   choice = ''
   loop do
-    prompt('Choice one: #{VALID_CHOICES.join(', ')}')
+    prompt("Choice one: #{VALID_CHOICES.join(', ')}")
     choice = Kernel.gets.chomp
 
     if VALID_CHOICES.include?(choice)
