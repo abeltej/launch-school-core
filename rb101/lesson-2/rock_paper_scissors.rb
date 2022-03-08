@@ -5,10 +5,17 @@ def prompt(message)
 end
 
 def display_result(player, computer)
-  
+  if (player == 'rock' && computer == 'scissors') || (player == 'paper' && computer == 'rock') || 
+    (player == 'scissors' && computer == 'paper')
+    prompt("You Won!")
+  elsif ( player == 'rock' && computer == 'paper') || (player == 'paper' && computer == 'scissors') || (player == 'scissors') && (computer == 'rock')
+    prompt('Computer Won!')
+  else 
+    prompt("its a tie")
+  end  
 end
-loop do 
 
+loop do 
   choice = ''
   loop do
     prompt("Choice one: #{VALID_CHOICES.join(', ')}")
@@ -25,14 +32,7 @@ loop do
 
   prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
 
-  if (choice == 'rock' && computer_choice == 'scissors') || (choice == 'paper' && computer_choice == 'rock') || 
-    (choice == 'scissors' && computer_choice == 'paper')
-    prompt("You Won!")
-  elsif ( choice == 'rock' && computer_choice == 'paper') || (choice == 'paper' && computer_choice == 'scissors') || (choice == 'scissors') && (computer_choice == 'rock')
-    prompt('Computer Won!')
-  else 
-    prompt("its a tie")
-  end
+  display_result(choice, computer_choice)
 
   prompt("Do you want to play again?")
   answer = Kernel.gets().chomp()
