@@ -47,15 +47,17 @@ puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
 puts digit_list(444) == [4, 4, 4]             # => true
 
 
-
-
-
 # How Many?
 # Write a method that counts the number of occurrences of each element in a given array.
 vehicles = [
   'car', 'car', 'truck', 'car', 'SUV', 'truck',
   'motorcycle', 'motorcycle', 'car', 'truck'
 ]
+
+def count_occurrences(array) 
+  array = []
+  array.cou
+end
 
 count_occurrences(vehicles)
 # The words in the array are case-sensitive: 'suv' != 'SUV'. Once counted, print each element alongside the number of occurrences.
