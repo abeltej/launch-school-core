@@ -5,6 +5,7 @@ def repeat(str, num)
     puts str
   end
 end 
+
 repeat('Hello', 3)
 # Hello
 # Hello
@@ -16,6 +17,12 @@ repeat('Hello', 3)
 
 # Odd
 # Write a method that takes one integer argument, which may be positive, negative, or zero. This method returns true if the number's absolute value is odd. You may assume that the argument is a valid integer value.
+
+def is_odd? (num)
+  # num  % 2 != 0
+  # num  % 2 == 1
+  num.remainder(2) != 0       # x.remainder(y) = x-y*(x/y).truncate
+end
 
 puts is_odd?(2)    # => false
 puts is_odd?(5)    # => true

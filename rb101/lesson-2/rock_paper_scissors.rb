@@ -4,6 +4,10 @@ def prompt(message)
   Kernel.puts("=> message")
 end
 
+def display_result(player, computer)
+  
+end
+
 choice = ''
 loop do
   prompt("Choice one: #{VALID_CHOICES.join(',')}")
