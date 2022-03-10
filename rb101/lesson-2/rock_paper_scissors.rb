@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-VALID_CHOICES = %w[rock paper scissors spock lizard].freeze
+VALID_CHOICES = %w[r p s sp l].freeze
 
 WINNING_HANDS = { rock: ["lizard", "scissors"], paper: ["rock", "spock"], scissors: ["lizard", "paper"], spock: ["rock", "scissors"], lizard: ["spock", "paper"]} #bonus rps
 
@@ -34,7 +34,7 @@ end
 loop do
   choice = ''
   loop do
-    prompt("Choice one: #{VALID_CHOICES.join(', ')}")
+    prompt("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard) #{VALID_CHOICES.join(', ')}")
     choice = Kernel.gets.chomp
 
     if VALID_CHOICES.include?(choice)
