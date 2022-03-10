@@ -75,7 +75,6 @@ loop do
   end
 
   monthly_payment = loan_amount * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**-loan_duration_months))
-  #  prompt("Your monthly payment is #{monthly_payment}")
   prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
   break
 end
