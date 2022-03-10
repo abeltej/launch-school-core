@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-VALID_CHOICES = %w[rock paper scissors].freeze
+VALID_CHOICES = %w[rock paper scissors spock lizard].freeze
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -10,6 +10,8 @@ def win?(first, second)
   (first == 'rock' && second == 'scissors') || (first == 'paper' && second == 'rock') ||
     (first == 'scissors' && second == 'paper')
 end
+
+winning_hands = { rock : ["lizard", "scissors"], paper : ["rock", "spock"], scissors : ["lizard", "paper"], spock : ["rock", "scissors"], lizard : ["spock", "paper"]}
 
 def display_result(player, computer)
   if win?(player, computer)
