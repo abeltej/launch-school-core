@@ -2,21 +2,29 @@
 
 VALID_CHOICES = %w[rock paper scissors spock lizard].freeze
 
+WINNING_HANDS = { rock: ["lizard", "scissors"], paper: ["rock", "spock"], scissors: ["lizard", "paper"], spock: ["rock", "scissors"], lizard: ["spock", "paper"]} #bonus rps
+
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
-def win?(first, second)
-  (first == 'rock' && second == 'scissors') || (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+# def win?(first, second) #original RPS
+#   (first == 'rock' && second == 'scissors') || (first == 'paper' && second == 'rock') ||
+#     (first == 'scissors' && second == 'paper')
+# end
+
+def players_win(player, computer) #bonus rps
+  WINNING_HANDS[player.to_sym].include?(computer)
 end
 
-winning_hands = { rock : ["lizard", "scissors"], paper : ["rock", "spock"], scissors : ["lizard", "paper"], spock : ["rock", "scissors"], lizard : ["spock", "paper"]}
+def computers_win(computer, player)
+  WINNING_HANDS[computer.to_sym].include?(player)
+end
 
 def display_result(player, computer)
-  if win?(player, computer)
+  if players_win(player, computer)
     prompt('You Won!')
-  elsif win?(computer, player)
+  elsif computers_win(computer, player)
     prompt('Computer Won!')
   else
     prompt('its a tie')
