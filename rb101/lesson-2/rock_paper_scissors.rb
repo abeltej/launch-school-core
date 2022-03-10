@@ -41,32 +41,58 @@ def display_result(player, computer)
   end
 end
 
-loop do
-  choice = ''
-  loop do
-    puts("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard")
-    prompt("#{VALID_CHOICES.join(', ')}")
-    choice = Kernel.gets.chomp
+def current_score(player, computer)
+  prompt("Your score: #{player}, Computer score: #{computer}")
+end
 
-    if VALID_CHOICES.include?(choice)
-      break
-    else
-      prompt('Thats not a valid choice')
+def game_over([player_total_wins, computer_total_wins])
+  if player_total_wins || computer_total_wins = 5
+end
+
+loop do
+  player_total_wins = 0
+  computer_total_wins = 0
+  round = 1
+
+  loop do
+    choice = ''
+    loop do
+      puts("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard")
+      prompt("#{VALID_CHOICES.join(', ')}")
+      choice = Kernel.gets.chomp
+
+      if VALID_CHOICES.include?(choice)
+        break
+      else
+        prompt('Thats not a valid choice')
+      end
     end
+
+    computer_choice = VALID_CHOICES.sample
+
+    choice = converter(choice)
+    computer_choice = converter(computer_choice)
+
+    round += 1
+
+    prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
+
+    if players_win
+      player_total_wins + 1
+    elsif computers_win
+      computer_total_wins + 1
+    end
+
+    current_score(choice, computer_choice)
+
+    prompt('Do you want to play again?')
+    answer = Kernel.gets.chomp
+    break unless answer.downcase.start_with?('y')
   end
 
-  computer_choice = VALID_CHOICES.sample
+  break if game_over(player_total_wins, computer_total_wins)
 
-  choice = converter(choice)
-  computer_choice = converter(computer_choice)
-
-  prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
-
-  display_result(choice, computer_choice)
-
-  prompt('Do you want to play again?')
-  answer = Kernel.gets.chomp
-  break unless answer.downcase.start_with?('y')
+  display_result(player, computer)
 end
 
 prompt('Thank you for playing')
