@@ -21,6 +21,16 @@ def computers_win(computer, player)
   WINNING_HANDS[computer.to_sym].include?(player)
 end
 
+def converter(choice)
+  case choice
+  when 'r' then 'rock'
+  when 'p' then 'paper'
+  when 's' then 'scissors'
+  when 'sp' then 'spock'
+  when 'l' then 'lizard'
+  end
+end
+
 def display_result(player, computer)
   if players_win(player, computer)
     prompt('You Won!')
@@ -34,7 +44,8 @@ end
 loop do
   choice = ''
   loop do
-    prompt("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard) #{VALID_CHOICES.join(', ')}")
+    puts("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard")
+    prompt("#{VALID_CHOICES.join(', ')}")
     choice = Kernel.gets.chomp
 
     if VALID_CHOICES.include?(choice)
@@ -45,6 +56,9 @@ loop do
   end
 
   computer_choice = VALID_CHOICES.sample
+
+  choice = converter(choice)
+  computer_choice = converter(computer_choice)
 
   prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
 
