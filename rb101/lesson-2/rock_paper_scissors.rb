@@ -45,8 +45,8 @@ def current_score(player, computer)
   prompt("Your score: #{player}, Computer score: #{computer}")
 end
 
-def game_over([player_total_wins, computer_total_wins])
-  if player_total_wins || computer_total_wins = 5
+def game_over(player_total_wins, computer_total_wins)
+  if player_total_wins || computer_total_wins == 5
 end
 
 loop do
@@ -75,12 +75,12 @@ loop do
 
     round += 1
 
-    prompt("You choose: #{choice}; Computer choose: #{computer_choice}")
+    prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
     if players_win
-      player_total_wins + 1
+      player_total_wins += 1
     elsif computers_win
-      computer_total_wins + 1
+      computer_total_wins += 1
     end
 
     current_score(choice, computer_choice)
@@ -88,10 +88,8 @@ loop do
     prompt('Do you want to play again?')
     answer = Kernel.gets.chomp
     break unless answer.downcase.start_with?('y')
-  end
 
   break if game_over(player_total_wins, computer_total_wins)
-
   display_result(player, computer)
 end
 
