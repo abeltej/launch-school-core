@@ -11,7 +11,7 @@ WINNING_HANDS = {
   lizard: %w[spock paper]
 }.freeze
 
-WINNING_PLAYER  = 5
+WINNING_PLAYER  = 3
 
 def prompt(message)
   Kernel.puts("=> #{message}")
