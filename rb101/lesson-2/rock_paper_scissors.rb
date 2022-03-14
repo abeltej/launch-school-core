@@ -90,7 +90,6 @@ loop do
       prompt('its a tie')
     end
 
-    # current_score(player, computer)
     current_score(player_total_wins, computer_total_wins)
     break if game_over(player_total_wins, computer_total_wins)
   end
