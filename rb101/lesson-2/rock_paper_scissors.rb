@@ -11,6 +11,8 @@ WINNING_HANDS = {
   lizard: %w[spock paper]
 }.freeze
 
+WINNING_PLAYER  = 5
+
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
@@ -48,7 +50,7 @@ end
 =end
 
 def display_result(player_total_wins, computer_total_wins)
-
+  prompt("THE FINAL SCORE: #{player_total_wins}, Computer score: #{computer_total_wins}")
 end
 
 def current_score(player, computer)
@@ -56,8 +58,7 @@ def current_score(player, computer)
 end
 
 def game_over(player_total_wins, computer_total_wins)
-  if (player_total_wins || computer_total_wins) == 5
-  end
+  player_total_wins == WINNING_PLAYER || computer_total_wins == WINNING_PLAYER
 end
 
 loop do
@@ -94,7 +95,7 @@ loop do
     break if game_over(player_total_wins, computer_total_wins)
   end
 
-  # display_result(player, computer)
+  display_result(player_total_wins, computer_total_wins)
 
   prompt('Do you want to play again?')
   answer = Kernel.gets.chomp
