@@ -50,9 +50,9 @@ loop do
 
   annual_interest_rate = interest_rate.to_f / 100
   monthly_interest_rate = annual_interest_rate / 12
-  months = years.to_i() * 12
+  months = years.to_i * 12
 
-  monthly_payment = amount.to_f() *
+  monthly_payment = amount.to_f *
                     (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**-months))
 
   prompt("Your monthly payment is: $#{format('%.2f', monthly_payment)}")
