@@ -54,7 +54,7 @@ def display_result(player_total_wins, computer_total_wins)
 end
 
 def current_score(player, computer)
-  prompt("Your score: #{player}, Computer score: #{computer}")
+  prompt("Your current score: #{player}, Computer score: #{computer}")
 end
 
 def game_over(player_total_wins, computer_total_wins)
