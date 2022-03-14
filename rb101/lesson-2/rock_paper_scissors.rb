@@ -2,7 +2,14 @@
 
 VALID_CHOICES = %w[r p s sp l].freeze
 
-WINNING_HANDS = { rock: ["lizard", "scissors"], paper: ["rock", "spock"], scissors: ["lizard", "paper"], spock: ["rock", "scissors"], lizard: ["spock", "paper"]} #bonus rps
+# bonus rps
+WINNING_HANDS = {
+  rock: %w[lizard scissors],
+  paper: %w[rock spock],
+  scissors: %w[lizard paper],
+  spock: %w[rock scissors],
+  lizard: %w[spock paper]
+}.freeze
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -13,8 +20,8 @@ end
 #     (first == 'scissors' && second == 'paper')
 # end
 
-def players_win(player, computer) #bonus rps
-  WINNING_HANDS[player.to_sym].include?(computer)
+def players_win(player, computer)
+  WINNING_HANDS[player.to_sym].include?(computer) # bonus rps
 end
 
 def computers_win(computer, player)
@@ -31,14 +38,17 @@ def converter(choice)
   end
 end
 
-def display_result(player, computer)
+=begin def display_result(player, computer)  # original rps
   if players_win(player, computer)
     prompt('You Won!')
   elsif computers_win(computer, player)
     prompt('Computer Won!')
-  else
-    prompt('its a tie')
   end
+end
+=end
+
+def display_result(player_total_wins, computer_total_wins)
+
 end
 
 def current_score(player, computer)
@@ -46,26 +56,22 @@ def current_score(player, computer)
 end
 
 def game_over(player_total_wins, computer_total_wins)
-  if player_total_wins || computer_total_wins == 5
+  if (player_total_wins || computer_total_wins) == 5
+  end
 end
 
 loop do
   player_total_wins = 0
   computer_total_wins = 0
-  round = 1
-
   loop do
     choice = ''
     loop do
-      puts("Choose one: (r = rock, p = paper, s = scissors, sp = spock, l = lizard")
-      prompt("#{VALID_CHOICES.join(', ')}")
+      puts('Choose one: r = rock, p = paper, s = scissors, sp = spock, l = lizard')
+      prompt(VALID_CHOICES.join(', ').to_s)
       choice = Kernel.gets.chomp
+      break if VALID_CHOICES.include?(choice)
 
-      if VALID_CHOICES.include?(choice)
-        break
-      else
-        prompt('Thats not a valid choice')
-      end
+      prompt('Thats not a valid choice')
     end
 
     computer_choice = VALID_CHOICES.sample
@@ -73,24 +79,26 @@ loop do
     choice = converter(choice)
     computer_choice = converter(computer_choice)
 
-    round += 1
-
     prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
-    if players_win
+    if players_win(choice, computer_choice)
       player_total_wins += 1
-    elsif computers_win
+    elsif computers_win(computer_choice, choice)
       computer_total_wins += 1
+    else
+      prompt('its a tie')
     end
 
-    current_score(choice, computer_choice)
+    # current_score(player, computer)
+    current_score(player_total_wins, computer_total_wins)
+    break if game_over(player_total_wins, computer_total_wins)
+  end
 
-    prompt('Do you want to play again?')
-    answer = Kernel.gets.chomp
-    break unless answer.downcase.start_with?('y')
+  # display_result(player, computer)
 
-  break if game_over(player_total_wins, computer_total_wins)
-  display_result(player, computer)
+  prompt('Do you want to play again?')
+  answer = Kernel.gets.chomp
+  break unless answer.downcase.start_with?('y')
 end
 
 prompt('Thank you for playing')
