@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-VALID_CHOICES = %w[r p s sp l].freeze
+VALID_CHOICES = %w[r p s sp l rock paper scissors spock lizard].freeze
 
 # bonus rps
 WIN_HAND = {
