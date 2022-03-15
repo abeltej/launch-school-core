@@ -3,7 +3,7 @@
 VALID_CHOICES = %w[r p s sp l].freeze
 
 # bonus rps
-WINNING_HANDS = {
+WIN_HAND = {
   rock: %w[lizard scissors],
   paper: %w[rock spock],
   scissors: %w[lizard paper],
@@ -23,11 +23,10 @@ end
 # end
 
 def players_win(player, computer)
-  WINNING_HANDS[player.to_sym].include?(computer) # bonus rps
+  WIN_HAND[player.to_sym].include?(computer) # bonus rps
 end
 
-def computers_win(computer, player)
-  WINNING_HANDS[computer.to_sym].include?(player)
+def computers_win(computer, _HAND[computer.to_sym].include?(player)
 end
 
 def converter(choice)
