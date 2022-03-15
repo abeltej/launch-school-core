@@ -68,7 +68,7 @@ loop do
     choice = ''
     loop do
       prompt("Choose one: r = rock, p = paper, s = scissors, sp = spock, l = lizard")
-      prompt(VALID_CHOICES.join(', ').to_s)
+      # prompt(VALID_CHOICES.join(', ').to_s)
       choice = gets.chomp
       break if VALID_CHOICES.include?(choice)
 
