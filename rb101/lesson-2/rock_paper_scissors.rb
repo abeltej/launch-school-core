@@ -61,10 +61,6 @@ def game_over(player_total_wins, computer_total_wins)
   player_total_wins == WINNING_PLAYER || computer_total_wins == WINNING_PLAYER
 end
 
-def play_again?
-
-end
-
 loop do
   player_total_wins = 0
   computer_total_wins = 0
