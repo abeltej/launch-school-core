@@ -26,7 +26,8 @@ def players_win(player, computer)
   WIN_HAND[player.to_sym].include?(computer) # bonus rps
 end
 
-def computers_win(computer, _HAND[computer.to_sym].include?(player)
+def computers_win(computer, player)
+  WIN_HAND[computer.to_sym].include?(player)
 end
 
 def converter(choice)
