@@ -14,7 +14,7 @@ WINNING_HANDS = {
 WINNING_PLAYER = 3
 
 def prompt(message)
-  Kernel.puts("=> #{message}")
+  puts("=> #{message}")
 end
 
 # def win?(first, second) #original RPS
@@ -67,9 +67,9 @@ loop do
   loop do
     choice = ''
     loop do
-      puts('Choose one: r = rock, p = paper, s = scissors, sp = spock, l = lizard')
+      prompt("Choose one: r = rock, p = paper, s = scissors, sp = spock, l = lizard")
       prompt(VALID_CHOICES.join(', ').to_s)
-      choice = Kernel.gets.chomp
+      choice = gets.chomp
       break if VALID_CHOICES.include?(choice)
 
       prompt('Thats not a valid choice')
