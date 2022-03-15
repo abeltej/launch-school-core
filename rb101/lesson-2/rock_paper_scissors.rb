@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-VALID_CHOICES = %w[r p s sp l rock paper scissors spock lizard].freeze
+VALID_CHOICES = %w[r p s sp l].freeze
 
 # bonus rps
 WIN_HAND = {
@@ -61,6 +61,10 @@ def game_over(player_total_wins, computer_total_wins)
   player_total_wins == WINNING_PLAYER || computer_total_wins == WINNING_PLAYER
 end
 
+def play_again?
+
+end
+
 loop do
   player_total_wins = 0
   computer_total_wins = 0
@@ -80,6 +84,8 @@ loop do
     choice = converter(choice)
     computer_choice = converter(computer_choice)
 
+    system("clear") || system("cls")
+
     prompt("You chose: #{choice}; Computer chose: #{computer_choice}")
 
     if players_win(choice, computer_choice)
@@ -96,9 +102,10 @@ loop do
 
   display_result(player_total_wins, computer_total_wins)
 
-  prompt('Do you want to play again?')
+  prompt('Do you want to play again? (y = yes)')
   answer = Kernel.gets.chomp
   break unless answer.downcase.start_with?('y')
+
 end
 
 prompt('Thank you for playing')
