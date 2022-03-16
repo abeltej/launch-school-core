@@ -28,7 +28,7 @@ ages = { "Herman" => 32, "Lily" => 30, "Grandpa" => 5843, "Eddie" => 10 }
 
 additional_ages = { "Marilyn" => 22, "Spot" => 237 }
 
-# Solution
+# Solution 3
 
 ages.merge!(additional_ages)
 
@@ -37,10 +37,24 @@ ages.merge!(additional_ages)
 
 advice = "Few things in life are as important as house training your pet dinosaur."
 
+# Solution 4
+
+advice.match?("Dino")
+
+# Note that this is not a perfect solution, as it would match any substring with Dino in it.
+
 # Question 5
 # Show an easier way to write this array:
 
 flintstones = ["Fred", "Barney", "Wilma", "Betty", "BamBam", "Pebbles"]
+
+# Solution 5
+
+flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
+
+# Solution 6
+
+flintstones << "Dino"
 
 # Question 6
 # How can we add the family pet "Dino" to our usual array:
