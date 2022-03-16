@@ -52,10 +52,6 @@ flintstones = ["Fred", "Barney", "Wilma", "Betty", "BamBam", "Pebbles"]
 
 flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 
-# Solution 6
-
-flintstones << "Dino"
-
 # Question 6
 # How can we add the family pet "Dino" to our usual array:
 
@@ -63,6 +59,8 @@ flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 
 # Solution 6
 
+flintstones << "Dino"
+# We could have used either Array#concat or Array#push to add Dino to the family.
 
 # Question 7
 # In the previous practice problem we added Dino to our array like this:
@@ -70,13 +68,12 @@ flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 flintstones << "Dino"
 
-# We could have used either Array#concat or Array#push to add Dino to the family.
-
 # How can we add multiple items to our array? (Dino and Hoppy)
-
 
 # Solution 7
 
+flintstones.push("Dino").push("Hoppy")   # push returns the array so we can chain
+flintstones.concat(%w(Dino Hoppy))  # concat adds an array rather than one item
 
 # Question 7
 # Shorten the following sentence:
@@ -88,6 +85,8 @@ advice = "Few things in life are as important as house training your pet dinosau
 
 # Solution 8
 
+advice.slice!(0, advice.index('house'))  # => "Few things in life are as important as "
+p advice # => "house training your pet dinosaur."
 
 #  Question 9
 # Write a one-liner to count the number of lower-case 't' characters in the following string:
