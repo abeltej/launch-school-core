@@ -4,11 +4,12 @@
 
 # For this practice problem, write a one-line program that creates the following output 10 times, with the subsequent line indented 1 space to the right:
 
-The Flintstones Rock!
- The Flintstones Rock!
-  The Flintstones Rock!
+# The Flintstones Rock!
+#  The Flintstones Rock!
+#   The Flintstones Rock!
 
 # Solution 1
+10.times { |number| puts (" " * number) + "The Flintstones Rock!" }
 
 # Question 2
 
@@ -18,6 +19,8 @@ puts "the value of 40 + 2 is " + (40 + 2)
 # Why is this and what are two possible ways to fix this?
 
 # Solution 2
+puts "the value of 40 + 2 is " + (40 + 2).to_s
+puts "the value of 40 + 2 is #{40 + 2}"
 
 # Question 3
 # Alan wrote the following method, which was intended to show all of the factors of the input number:
