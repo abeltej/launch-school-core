@@ -38,11 +38,17 @@ end
 
 # Bonus 1
 # What is the purpose of the number % divisor == 0 ?
+# Allows you to determine if the result of the division is an integer number (no remainder).
 
 # Bonus 2
 # What is the purpose of the second-to-last line (line 8) in the method (the factors before the method's end)?
+# This is what is the actual return value from the method. Recall that without an explicit return statement in the code, the return value of the method is the last statement executed. If we omitted this line, the code would execute, but the return value of the method would be nil.
 
 # Solution 3
+while divisor > 0
+  factors << number / divisor if number % divisor == 0
+  divisor -= 1
+end
 
 # Question 4
 # Alyssa was asked to write an implementation of a rolling buffer. Elements are added to the rolling buffer and if the buffer becomes full, then new elements that are added will displace the oldest elements in the buffer.
