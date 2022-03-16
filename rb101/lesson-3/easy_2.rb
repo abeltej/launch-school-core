@@ -79,6 +79,7 @@ flintstones.concat(%w(Dino Hoppy))  # concat adds an array rather than one item
 # Shorten the following sentence:
 
 advice = "Few things in life are as important as house training your pet dinosaur."
+
 # Review the String#slice! documentation, and use that method to make the return value "Few things in life are as important as ". But leave the advice variable as "house training your pet dinosaur.".
 
 # As a bonus, what happens if you use the String#slice method instead?
@@ -95,6 +96,7 @@ statement = "The Flintstones Rock!"
 
 # Solution 9
 
+statement.count('t')
 
 # Question 10
 # Back in the stone age (before CSS) we used spaces to align things on the screen. If we had a table of Flintstone family members that was forty characters in width, how could we easily center that title above the table with spaces?
@@ -102,3 +104,5 @@ statement = "The Flintstones Rock!"
 title = "Flintstone Family Members"
 
 # Solution 10
+
+title.center(40)
