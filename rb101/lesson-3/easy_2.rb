@@ -61,6 +61,9 @@ flintstones << "Dino"
 
 flintstones = %w(Fred Barney Wilma Betty BamBam Pebbles)
 
+# Solution 6
+
+
 # Question 7
 # In the previous practice problem we added Dino to our array like this:
 
@@ -71,7 +74,11 @@ flintstones << "Dino"
 
 # How can we add multiple items to our array? (Dino and Hoppy)
 
-# Question 8
+
+# Solution 7
+
+
+# Question 7
 # Shorten the following sentence:
 
 advice = "Few things in life are as important as house training your pet dinosaur."
@@ -79,10 +86,16 @@ advice = "Few things in life are as important as house training your pet dinosau
 
 # As a bonus, what happens if you use the String#slice method instead?
 
+# Solution 8
+
+
 #  Question 9
 # Write a one-liner to count the number of lower-case 't' characters in the following string:
 
 statement = "The Flintstones Rock!"
+
+# Solution 9
+
 
 # Question 10
 # Back in the stone age (before CSS) we used spaces to align things on the screen. If we had a table of Flintstone family members that was forty characters in width, how could we easily center that title above the table with spaces?
