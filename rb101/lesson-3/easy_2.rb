@@ -28,6 +28,10 @@ ages = { "Herman" => 32, "Lily" => 30, "Grandpa" => 5843, "Eddie" => 10 }
 
 additional_ages = { "Marilyn" => 22, "Spot" => 237 }
 
+# Solution
+
+ages.merge!(additional_ages)
+
 # Question 4
 # See if the name "Dino" appears in the string below:
 
