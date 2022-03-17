@@ -50,6 +50,7 @@ while divisor > 0
   divisor -= 1
 end
 
+
 # Question 4
 # Alyssa was asked to write an implementation of a rolling buffer. Elements are added to the rolling buffer and if the buffer becomes full, then new elements that are added will displace the oldest elements in the buffer.
 
@@ -68,6 +69,8 @@ def rolling_buffer2(input_array, max_buffer_size, new_element)
 end
 
 # Solution 4
+
+# Yes, there is a difference. While both methods have the same return value, in the first implementation, the input argument called buffer will be modified and will end up being changed after rolling_buffer1 returns. That is, the caller will have the input array that they pass in be different once the call returns. In the other implementation, rolling_buffer2 will not alter the caller's input argument.
 
 
 # Question 5
@@ -92,6 +95,9 @@ puts "result is #{result}"
 
 # Solution 5
 
+# Ben defines limit before he calls fib. But limit is not visible in the scope of fib because fib is a method and does not have access to any local variables outside of its scope.
+
+# You can make limit an additional argument to the definition of the fib method and pass it in when you call fib.
 
 # Question 6
 # What is the output of the following code?
@@ -107,6 +113,8 @@ new_answer = mess_with_it(answer)
 p answer - 8
 
 # Solution 6
+
+34
 
 # Question 7
 # One day Spot was playing with the Munster family's home computer and he wrote a small program to mess with their demographic data:
