@@ -100,31 +100,6 @@ fun_with_ids
 # Question 2
 # Let's look at object id's again from the perspective of a method call instead of a block.
 
-# Here we haven't changed ANY of the code outside or inside of the block/method. We simply took the contents of the block from the previous practice problem and moved it to a method, to which we are passing all of our outer variables.
-
-# Predict how the values and object ids will change throughout the flow of the code below:
-
-# Notice that this works the same as before. No big surprise.
-
-# This is also the same as before. These "outers" are NOT the same variables as those outside, Ruby is simply re-using the objects, as these new variables have the same values as the ones outside.
-
-# As before with the block version of this practice problem, when we change the values of our "outers", Ruby uses new objects for these variables to deal with their new values.
-
-# One important difference to note is that before, we saw Ruby re-using the "42" object and just giving it a new value inside the block. Why the difference? It should become clear a couple of paragraphs later in this solution...
-
-# No big surprise here...Ruby is re-using objects that have the same values...
-
-# Wow, look at that. Even though we changed the values of our "outer" variables inside the method call, we still have the same values and the same object id's down here AFTER the method call as we had before it!
-
-# This is because our method call accepts VALUES as arguments. The names we give to those values in the definition of our method are SEPARATE from any other use of those same names.
-
-# We used the same names there for convenience (and admittedly to build some suspense and allow us to clarify this point). We could just as easily have called the first parameter of our method definition a_Fred instead of a_outer.
-
-# The method gets the VALUES of the arguments we pass, but the parameter variables inside the method have no other relationship to those outside of the method. The names were coincidental, and confusing in a useful way.
-
-# Our main method STILL has no access to variables that are defined inside of the method.
-
-
 def fun_with_ids
   a_outer = 42
   b_outer = "forty two"
@@ -225,8 +200,14 @@ puts "My string looks like this now: #{my_string}"
 puts "My array looks like this now: #{my_array}"
 
 # Solution 3
+# My string looks like this now: pumpkins
+# My array looks like this now: ["pumpkins", "rutabaga"]
 
+# The String#+= operation is re-assignment and creates a new String object. The reference to this new object is assigned to a_string_param. The local variable a_string_param now points to "pumpkinsrutabaga", not "pumpkins". It has been re-assigned by the String#+= operation. This means that a_string_param and my_string no longer point to the same object.
 
+# With the array, one array object can have any number of elements. When we attach an additional element to an array using the << operator, Ruby simply keeps using the same object that was passed in, and appends the new element to it.
+
+# So, because the local variable an_array_param still points to the original object, the local variables my_array and an_array_param are still pointing at the same object, and we see the results of what happened to the array "outside" of the method.
 
 
 # Question 4
@@ -243,7 +224,21 @@ tricky_method_two(my_string, my_array)
 
 puts "My string looks like this now: #{my_string}"
 puts "My array looks like this now: #{my_array}"
+
 # Solution 4
+
+# My string looks like this now: pumpkinsrutabaga
+# My array looks like this now: ["pumpkins"]
+
+# As you can see, we have achieved the opposite effect from our last example.
+
+# We are still passing in the same two string and array arguments, but the results are the opposite, because our method does the "same thing" to each, but in a different way than before. That is, in both cases, the method attempts to change the string from "pumpkins" to "pumpkinsrutabaga" and add "rutabaga" to the array.
+
+# Despite the similarity of the results inside the method definition, the results outside the method definition are the opposite.
+
+# As before, the explanation is all about what Ruby does with a variable when we change the object it points to. Does it create a new object? Or is it able to just modify the existing object? In this case, our literal ['pumpkins', 'rutabaga'] array is a new object, and we are assigning it to the local variable an_array_param.
+
+
 # Question 5
 # Depending on a method to modify its arguments can be tricky:
 
@@ -263,6 +258,8 @@ puts "My array looks like this now: #{my_array}"
 # How can we change this code to make the result easier to predict and easier for the next programmer to maintain? That is, the resulting method # should not mutate either argument, but my_string should be set to 'pumpkinsrutabaga' and my_array should be set to ['pumpkins', 'rutabaga']
 
 # Solution 5
+
+
 # Question 6
 # How could the following method be simplified without changing its return value?
 
@@ -273,4 +270,5 @@ def color_valid(color)
     false
   end
 end
+
 # Solution 6
