@@ -196,7 +196,17 @@ def an_illustrative_method(a_outer, b_outer, c_outer, d_outer, a_outer_id, b_out
 end
 
 fun_with_ids
+
 # Solution 2
+# My string looks like this now: pumpkins
+# My array looks like this now: ["pumpkins", "rutabaga"]
+
+# The String#+= operation is re-assignment and creates a new String object. The reference to this new object is assigned to a_string_param. The local variable a_string_param now points to "pumpkinsrutabaga", not "pumpkins". It has been re-assigned by the String#+= operation. This means that a_string_param and my_string no longer point to the same object.
+
+# With the array, one array object can have any number of elements. When we attach an additional element to an array using the << operator, Ruby simply keeps using the same object that was passed in, and appends the new element to it.
+
+# So, because the local variable an_array_param still points to the original object, the local variables my_array and an_array_param are still pointing at the same object, and we see the results of what happened to the array "outside" of the method.
+
 # Question 3
 # Let's call a method, and pass both a string and an array as arguments and see how even though they are treated in the same way by Ruby, the results can be different.
 
@@ -213,7 +223,12 @@ tricky_method(my_string, my_array)
 
 puts "My string looks like this now: #{my_string}"
 puts "My array looks like this now: #{my_array}"
+
 # Solution 3
+
+
+
+
 # Question 4
 # To drive that last one home...let's turn the tables and have the string show a modified output, while the array thwarts the method's efforts to modify the caller's version of it.
 
