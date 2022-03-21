@@ -138,7 +138,13 @@ end
 mess_with_demographics(munsters)
 # Did the family's data get ransacked? Why or why not?
 
-# Solution 7
+# Solution
+
+# Spot will find himself in the "dog" house for this one. The family's data is all in shambles now.
+
+# Why? Remember that in Ruby, what gets passed to a method isn't the value of the object. Under the hood, Ruby passes the object_id of each argument to the method. The method stores these object_id's internally in locally scoped (private to the method) variables (named per the method definition's parameter list).
+
+# So Spot's demo_hash is pointing to the munsters hash. In this case, the program does not create a new hash for the result -- it just uses the existing hash as-is. So the actual hash object that is being messed with inside of the method IS the munsters hash.
 
 # Question 8
 # Method calls can take expressions as arguments. Suppose we define a method called rps as follows, which follows the classic rules of rock-paper-scissors game: it returns the winning fist or, in the case of a tie, the fist that both players played.
@@ -158,6 +164,10 @@ puts rps(rps(rps("rock", "paper"), rps("rock", "scissors")), "rock")
 
 # Solution 8
 
+# "paper"
+
+# The outermost call is evaluated by determining the result of rps(rps("rock", "paper"), rps("rock", "scissors")) versus rock. In turn that means we need to evaluate the two separate results of rps("rock", "paper") and rps("rock", "scissors") and later combine them by calling rps on their individual results. Those innermost expressions will return "paper" and "rock", respectively. Calling rps on that input will return "paper". Which finally when evaluated against "rock" will return "paper".
+
 # Question 9
 # Consider these two simple methods:
 
@@ -168,7 +178,10 @@ end
 def bar(param = "no")
   param == "no" ? "yes" : "no"
 end
-What would be the return value of the following method invocation?
+# What would be the return value of the following method invocation?
 
 bar(foo)
 # Solution 9
+# "no"
+
+# This is because the value returned from the foo method will always be "yes" , and "yes" == "no" will be false.
