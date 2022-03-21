@@ -79,13 +79,51 @@ def fun_with_ids
 end
 
 fun_with_ids
+
 # Solution 1
+# a_outer is 42 with an id of: 85 before the block.
+# b_outer is forty two with an id of: 2152729580 before the block.
+# c_outer is [42] with an id of: 2152729540 before the block.
+# d_outer is 42 with an id of: 85 before the block.
+
+# Notice that Ruby re-used the "42 object with id 85" when the value was the same.
+
+# Notice that Ruby did NOT change the id for any of the objects between outside and inside the block
+
+# Notice that changing the values has forced Ruby to create new objects and refer to them with the original variable names.
+
+# Notice that Ruby re-uses the objects under the hood when it can, but uses different ones for different values.
+
+# Notice that once we leave the block, those variables that were defined inside the block lose their meaning.
+
+
 # Question 2
 # Let's look at object id's again from the perspective of a method call instead of a block.
 
 # Here we haven't changed ANY of the code outside or inside of the block/method. We simply took the contents of the block from the previous practice problem and moved it to a method, to which we are passing all of our outer variables.
 
 # Predict how the values and object ids will change throughout the flow of the code below:
+
+# Notice that this works the same as before. No big surprise.
+
+# This is also the same as before. These "outers" are NOT the same variables as those outside, Ruby is simply re-using the objects, as these new variables have the same values as the ones outside.
+
+# As before with the block version of this practice problem, when we change the values of our "outers", Ruby uses new objects for these variables to deal with their new values.
+
+# One important difference to note is that before, we saw Ruby re-using the "42" object and just giving it a new value inside the block. Why the difference? It should become clear a couple of paragraphs later in this solution...
+
+# No big surprise here...Ruby is re-using objects that have the same values...
+
+# Wow, look at that. Even though we changed the values of our "outer" variables inside the method call, we still have the same values and the same object id's down here AFTER the method call as we had before it!
+
+# This is because our method call accepts VALUES as arguments. The names we give to those values in the definition of our method are SEPARATE from any other use of those same names.
+
+# We used the same names there for convenience (and admittedly to build some suspense and allow us to clarify this point). We could just as easily have called the first parameter of our method definition a_Fred instead of a_outer.
+
+# The method gets the VALUES of the arguments we pass, but the parameter variables inside the method have no other relationship to those outside of the method. The names were coincidental, and confusing in a useful way.
+
+# Our main method STILL has no access to variables that are defined inside of the method.
+
 
 def fun_with_ids
   a_outer = 42
@@ -190,11 +228,10 @@ tricky_method_two(my_string, my_array)
 
 puts "My string looks like this now: #{my_string}"
 puts "My array looks like this now: #{my_array}"
-Solution 4
-Question 5
-Depending on a method to modify its arguments can be tricky:
+# Solution 4
+# Question 5
+# Depending on a method to modify its arguments can be tricky:
 
-Copy Code
 def tricky_method(a_string_param, an_array_param)
   a_string_param += "rutabaga"
   an_array_param << "rutabaga"
