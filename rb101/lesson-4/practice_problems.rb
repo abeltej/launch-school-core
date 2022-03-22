@@ -10,7 +10,11 @@
   num > 5
   'hi'
 end
+
 # Show Solution
+# => [1, 2, 3]
+# select performs selection based on the truthiness of the block's return value. In this case the return value will always be 'hi', which is a "truthy" value. Therefore select will return a new array containing all of the elements in the original array.
+
 # Practice Problem 2
 # How does count treat the block's return value? How can we find out?
 
@@ -19,6 +23,12 @@ end
 end
 
 # Show Solution
+
+# => 2
+# If a block is given, counts the number of elements for which the block returns a true value.
+# Based on this information, we can conclude that count only counts an element if the block's return value evaluates as true. This means that count considers the truthiness of the block's return value.
+
+
 # Practice Problem 3
 # What is the return value of reject in the following code? Why?
 
