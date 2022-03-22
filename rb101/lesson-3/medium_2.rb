@@ -259,6 +259,20 @@ puts "My array looks like this now: #{my_array}"
 
 # Solution 5
 
+def not_so_tricky_method(a_string_param, an_array_param)
+  a_string_param += "rutabaga"
+  an_array_param += ["rutabaga"]
+
+  return a_string_param, an_array_param
+end
+
+my_string = "pumpkins"
+my_array = ["pumpkins"]
+my_string, my_array = not_so_tricky_method(my_string, my_array)
+
+puts "My string looks like this now: #{my_string}"
+puts "My array looks like this now: #{my_array}"
+
 
 # Question 6
 # How could the following method be simplified without changing its return value?
@@ -272,3 +286,21 @@ def color_valid(color)
 end
 
 # Solution 6
+
+# Ruby will automatically evaluate statements, so this method:
+
+def color_valid(color)
+  if color == "blue" || color == "green"
+    true
+  else
+    false
+  end
+end
+
+# Can be significantly simplified by changing it to just:
+
+def color_valid(color)
+  color == "blue" || color == "green"
+end
+
+# Both of these methods do exactly the same thing - but one is much more complex to read.
