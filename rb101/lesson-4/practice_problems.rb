@@ -12,6 +12,7 @@
 end
 
 # Show Solution
+
 # => [1, 2, 3]
 # select performs selection based on the truthiness of the block's return value. In this case the return value will always be 'hi', which is a "truthy" value. Therefore select will return a new array containing all of the elements in the original array.
 
@@ -38,6 +39,9 @@ end
 
 # Show Solution
 
+# => [1, 2, 3]
+# Since puts always returns nil, you might think that no values would be selected and an empty array would be returned. The important thing to be aware of here is how reject treats the return value of the block. reject returns a new array containing items where the block's return value is "falsey". In other words, if the return value was false or nil the element would be selected.
+
 
 # Practice Problem 4
 # What is the return value of each_with_object in the following code? Why?
@@ -48,6 +52,11 @@ end
 
 # Show Solution
 
+# => { "a" => "ant", "b" => "bear", "c" => "cat" }
+# Based on our knowledge of each, it might be reasonable to think that each_with_object returns the original collection. That isn't the case, though. When we invoke each_with_object, we pass in an object ({} here) as an argument. That object is then passed into the block and its updated value is returned at the end of each iteration. Once each_with_object has iterated over the calling collection, it returns the initially given object, which now contains all of the updates.
+
+# In this code, we start with the hash object, {}. On the first iteration, we add "a" => "ant" to the hash. On the second, we add "b" => "bear", and on the last iteration, we add "c" => "cat". Thus, #each_with_object in this example returns a hash with those 3 elements.
+
 # Practice Problem 5
 # What does shift do in the following code? How can we find out?
 
@@ -55,6 +64,12 @@ hash = { a: 'ant', b: 'bear' }
 hash.shift
 
 # Show Solution
+
+# shift destructively removes the first key-value pair in hash and returns it as a two-item array. If we didn't already know how shift worked, we could easily learn by checking the docs for Hash#shift. The description for this method confirms our understanding:
+
+# Removes a key-value pair from hsh and returns it as the two-item array [ key, value ], or the hash’s default value if the hash is empty.
+
+# There are quite a few Ruby methods, and you're not expected to know them all. That's why knowing how to read the Ruby documentation is so important. If you don't know how a method works you can always check the docs.
 
 # Practice Problem 6
 # What is the return value of the following statement? Why?
