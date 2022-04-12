@@ -4,7 +4,7 @@ def repeat(str, num)
   num.times do
     puts str
   end
-end 
+end
 
 repeat('Hello', 3)
 # Hello
@@ -54,9 +54,9 @@ vehicles = [
   'motorcycle', 'motorcycle', 'car', 'truck'
 ]
 
-def count_occurrences(array) 
+def count_occurrences(array)
   array = []
-  array.cou
+  array.count
 end
 
 count_occurrences(vehicles)
