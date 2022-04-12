@@ -55,8 +55,15 @@ vehicles = [
 ]
 
 def count_occurrences(array)
-  array = []
-  array.count
+  occurrences = {}
+
+  array.uniq.each do |element|
+    occurrences[element] = array.count(element)
+  end
+
+  occurrences.each do |element, count|
+    puts "#{element} => #{count}"
+  end
 end
 
 count_occurrences(vehicles)
