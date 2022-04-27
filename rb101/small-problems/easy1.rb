@@ -106,11 +106,6 @@ def reverse_words(str)
   words.join(' ')
 end
 
-
-
-
-
-
 # Stringy Strings
 # Write a method that takes one argument, a positive integer, and returns a string of alternating 1s and 0s, always starting with 1. The length of the string should match the given integer.
 
@@ -121,26 +116,45 @@ puts stringy(7) == '1010101'
 
 # The tests above should print true.
 
+def stringy(size)
+  numbers = []
 
+  size.times do |index|
+    number = index.even? ? 1 : 0
+    numbers << number
+  end
 
+  numbers.join
+end
 
 # Array Average
 # Write a method that takes one argument, an array containing integers, and returns the average of all numbers in the array. The array will never be empty and the numbers will always be positive integers. Your result should also be an integer.
+
 puts average([1, 6]) == 3 # integer division: (1 + 6) / 2 -> 3
 puts average([1, 5, 87, 45, 8, 8]) == 25
 puts average([9, 47, 23, 95, 16, 52]) == 40
+
 # The tests above should print true.
 
+def average(numbers)
+  sum = numbers.reduce { |sum, number| sum + number }
+  sum / numbers.count
+end
 
 
 # Sum of Digits
 # Write a method that takes one argument, a positive integer, and returns the sum of its digits.
+
 puts sum(23) == 5
 puts sum(496) == 19
 puts sum(123_456_789) == 45
+
 # The tests above should print true.
 # For a challenge, try writing this without any basic looping constructs (while, until, loop, and each).
 
+def sum(number)
+  number.to_s.chars.map(&:to_i).reduce(:+)
+end
 
 
 # What's my Bonus?
