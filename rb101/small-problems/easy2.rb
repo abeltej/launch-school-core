@@ -40,10 +40,10 @@ puts "The area of the room is #{square_meters} " + \
 # The tip is $30.0
 # The total is $230.0
 
-puts 'bill amount: '
+print 'bill amount: '
 bill_amount = gets.chomp.to_f
 
-puts 'tip percentage: '
+print 'tip percentage: '
 tip = gets.chomp.to_f
 
 tip_amount   = (bill_amount * (tip / 100)).round(2)
@@ -62,10 +62,10 @@ puts "The total is $#{total}"
 # Its 2016. You will retire in 2056.
 # You have only 40 years of work to go!
 
-puts "what is your age: "
+print "what is your age: "
 age = gets.chomp.to_i
 
-puts "what age do you want to retire: "
+print "what age do you want to retire: "
 retire_age = gets.chomp.to_i
 
 current_year = Time.now.year
@@ -75,21 +75,23 @@ retirement_year = current_year + work_years_to_go
 puts "It's #{current_year}. You will retire in #{retirement_year}. "
 puts  "You have only #{work_years_to_go} years of work to go!"
 
-
-
-
-
-
 # Greeting a user
 # Write a program that will ask for user's name. The program will then greet the user. If the user writes "name!" then the computer yells back to the user.
 
-What is your name? Bob
-Hello Bob.
-What is your name? Bob!
-HELLO BOB. WHY ARE WE SCREAMING?
+# What is your name? Bob
+# Hello Bob.
+# What is your name? Bob!
+# HELLO BOB. WHY ARE WE SCREAMING?
 
+print "what is your name"
+name = gets.chomp
 
-
+if name[-1] == '!'
+  name = name.chop
+  puts "HELLO #{name.upcase}. WHY ARE WE SCREAMING?"
+else
+  puts "Hello #{name}."
+end
 
 # Odd Numbers
 # Print all odd numbers from 1 to 99, inclusive, to the console, with each number on a separate line.
