@@ -163,18 +163,16 @@ name = 'Alice'
 puts name, save_name
 
 # What does this code print out? Think about it for a moment before continuing.
-Alice
-Bob
-
-
+# Alice
+# Bob
 
 name = 'Bob'
 save_name = name
 name.upcase!
 puts name, save_name
 # What does this print out? Can you explain these results?
-
-
+# BOB
+# BOB
 
 
 # Mutation
@@ -185,3 +183,14 @@ array2 = []
 array1.each { |value| array2 << value }
 array1.each { |value| value.upcase! if value.start_with?('C', 'S') }
 puts array2
+
+=begin
+Moe
+Larry
+CURLY
+SHEMP
+Harpo
+CHICO
+Groucho
+Zeppo
+=end
