@@ -34,14 +34,23 @@ puts "The area of the room is #{square_meters} " + \
 
 # Create a simple tip calculator. The program should prompt for a bill amount and a tip rate. The program must compute the tip and then display both the tip and the total amount of the bill.
 
-What is the bill? 200
-What is the tip percentage? 15
+# What is the bill? 200
+# What is the tip percentage? 15
 
-The tip is $30.0
-The total is $230.0
+# The tip is $30.0
+# The total is $230.0
 
+puts 'bill amount: '
+bill_amount = gets.chomp.to_f
 
+puts 'tip percentage: '
+tip = gets.chomp.to_f
 
+tip_amount   = (bill_amount * (tip / 100)).round(2)
+total = (bill_amount + tip_amount).round(2)
+
+puts "The tip is $#{tip_amount}"
+puts "The total is $#{total}"
 
 # When will I Retire?
 
