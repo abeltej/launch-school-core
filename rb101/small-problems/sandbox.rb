@@ -1,6 +1,8 @@
-[[1, 2], [3, 4]].map do |arr|
-  puts arr.first
+
+
+[{ a: 'ant', b: 'elephant' }, { c: 'cat' }].select do |hash|
+   p hash.all? do |key, value|
+     value[0] == key.to_s
+  end
 end
-# 1
-# 3
-# => [nil, nil]
+# => [{ :c => "cat" }]
