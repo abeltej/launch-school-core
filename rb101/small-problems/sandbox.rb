@@ -1,20 +1,6 @@
-numbers = []
-
-puts "Enter the 1st number:"
-numbers << gets.chomp.to_i
-puts "Enter the 2nd number:"
-numbers << gets.chomp.to_i
-puts "Enter the 3rd number:"
-numbers << gets.chomp.to_i
-puts "Enter the 4th number:"
-numbers << gets.chomp.to_i
-puts "Enter the 5th number:"
-numbers << gets.chomp.to_i
-puts "Enter the last number:"
-last_number = gets.chomp.to_i
-
-if numbers.include?(last_number)
-  puts "#{last_number} appears in #{numbers}"
-else
-  puts "#{last_number} does not appears in #{numbers}"
+[[1, 2], [3, 4]].map do |arr|
+  puts arr.first
 end
+# 1
+# 3
+# => [nil, nil]
