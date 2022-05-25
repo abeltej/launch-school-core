@@ -20,6 +20,17 @@ books = [
   {title: 'Ulysses', author: 'James Joyce', published: '1922'}
 ]
 
+books.sort_by do |book|
+  book[:published]
+end
+
+# => [
+# {:title=>"War and Peace", :author=>"Leo Tolstoy", :published=>"1869"},
+# {:title=>"Ulysses", :author=>"James Joyce", :published=>"1922"},
+# {:title=>"The Great Gatsby", :author=>"F. Scott Fitzgerald", :published=>"1925"},
+# {:title=>"One Hundred Years of Solitude", :author=>"Gabriel Garcia Marquez", :published=>"1967"}
+# ]
+
 # Practice Problem 3
 # For each of these collection objects demonstrate how you would reference the letter 'g'.
 
