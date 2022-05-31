@@ -41,13 +41,13 @@ arr2 = [{first: ['a', 'b', 'c'], second: ['d', 'e', 'f']}, {third: ['g', 'h', 'i
 arr2[1][:third][0]
 
 arr3 = [['abc'], ['def'], {third: ['ghi']}]
-arr3[]
+arr3[2][:third][0][0]
 
 hsh1 = {'a' => ['d', 'e'], 'b' => ['f', 'g'], 'c' => ['h', 'i']}
-hsh1{[]}
+hsh1[1][1]
 
 hsh2 = {first: {'d' => 3}, second: {'e' => 2, 'f' => 1}, third: {'g' => 0}}
-hsh2{[]}
+hsh2[2].key(0)
 
 # Practice Problem 4
 # For each of these collection objects where the value 3 occurs, demonstrate how you would change this to 4.
