@@ -76,6 +76,13 @@ munsters = {
 }
 # figure out the total age of just the male members of the family.
 
+male_age  = 0
+munsters.each_value do |details|
+  male_age += details['age'] if details['gender'] == 'male'
+end
+
+print male_age
+
 # Practice Problem 6
 # One of the most frequently used real-world string properties is that of "string substitution", where we take a hard-coded string and modify it with various parameters from our program.
 
@@ -91,6 +98,9 @@ munsters = {
 # ...like this:
 #(Name) is a (age)-year-old (male or female).
 
+munsters.each_pair do |name, details|
+  puts "#{name} is a #{details['age']}-year-old #{details['gender']}"
+end
 #Practice Problem 7
 #Given this code, what would be the final values of a and b? Try to work this out without running the code.
 
@@ -101,10 +111,15 @@ arr = [a, b]
 arr[0] += 2
 arr[1][0] -= a
 
+# a = 2
+# b = [3, 8]
+
 # Practice Problem 8
 # Using the each method, write some code to output all of the vowels from the strings.
 
 hsh = {first: ['the', 'quick'], second: ['brown', 'fox'], third: ['jumped'], fourth: ['over', 'the', 'lazy', 'dog']}
+
+
 
 # Practice Problem 9
 # Given this data structure, return a new array of the same structure but with the sub arrays being ordered (alphabetically or numerically as appropriate) in descending order.
