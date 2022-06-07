@@ -207,6 +207,17 @@ hsh = {
 
 [["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"]
 
+hsh.map do |_, value|
+  if value[:type] == 'fruit'
+    value[:colors].map do |color|
+      color.capitalize
+    end
+  elsif value[:type] == 'vegetable'
+    value[:size].upcase
+  end
+end
+
+
 # Practice Problem 15
 # Given this data structure write some code to return an array which contains only the hashes where all the integers are even.
 
