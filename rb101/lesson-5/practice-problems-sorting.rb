@@ -223,6 +223,14 @@ end
 
 arr = [{a: [1, 2, 3]}, {b: [2, 4, 6], c: [3, 6], d: [4]}, {e: [8], f: [6, 10]}]
 
+arr.select do |hsh|
+  hsh.all? do |_, value|
+    value.all? do |num|
+      num.even?
+    end
+  end
+end
+
 # Practice Problem 16
 # A UUID is a type of identifier often used as a way to uniquely identify items...which may not all be created by the same system. That is, without any form of synchronization, two or more separate computer systems can create new items and label them with a UUID with no significant chance of stepping on each other's toes.
 
