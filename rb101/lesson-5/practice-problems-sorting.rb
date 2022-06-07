@@ -101,6 +101,7 @@ munsters = {
 munsters.each_pair do |name, details|
   puts "#{name} is a #{details['age']}-year-old #{details['gender']}"
 end
+
 #Practice Problem 7
 #Given this code, what would be the final values of a and b? Try to work this out without running the code.
 
@@ -117,8 +118,18 @@ arr[1][0] -= a
 # Practice Problem 8
 # Using the each method, write some code to output all of the vowels from the strings.
 
+
 hsh = {first: ['the', 'quick'], second: ['brown', 'fox'], third: ['jumped'], fourth: ['over', 'the', 'lazy', 'dog']}
 
+vowels = 'aeiou'
+
+hsh.each do |_, value|
+  value.each do |str|
+    str.chars.each do |char|
+      puts char if vowels.include?(char)
+    end
+  end
+end
 
 
 # Practice Problem 9
@@ -126,10 +137,24 @@ hsh = {first: ['the', 'quick'], second: ['brown', 'fox'], third: ['jumped'], fou
 
 arr = [['b', 'c', 'a'], [2, 1, 3], ['blue', 'black', 'green']]
 
+arr.map do |sub_arr|
+  sub_arr.sort do |a, b|
+    b <=> a
+  end
+end
+
 # Practice Problem 10
 # Given the following data structure and without modifying the original array, use the map method to return a new array identical in structure to the original but where the value of each integer is incremented by 1.
 
 [{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}]
+
+[{a: 1}, {b: 2, c: 3}, {d: 4, e: 5, f: 6}].map do |hsh|
+  incremented_hash = {}
+  hsh.each do |key, value|
+    incremented_hash[key] = value + 1
+  end
+  incremented_hash
+end
 
 # Practice Problem 11
 # Given the following data structure use a combination of methods, including either the select or reject method, to return a new array identical in structure to the original but containing only the integers that are multiples of 3.
