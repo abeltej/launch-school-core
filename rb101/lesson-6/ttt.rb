@@ -8,6 +8,7 @@ def prompt(msg)
   puts "=> #{msg}"
 end
 
+# rubocop:disable Metrics/MethodLength
 def display_board(brd)
   system 'cls'
   puts "You're a #{PLAYER_MARKER}. Computer is #{COMPUTER_MARKER}"
@@ -25,7 +26,7 @@ def display_board(brd)
   puts '     |     |'
   puts ''
 end
-
+# rubocop:enable Metrics/MethodLength
 def initialize_board
   new_board = {}
   (1..9).each { |num| new_board[num] = INITIAL_MARKER }
