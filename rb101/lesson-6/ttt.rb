@@ -12,7 +12,7 @@ end
 # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
 def display_board(brd)
   system 'cls'
-  puts "You're a #{PLAYER_MARKER}. Computer is #{COMPUTER_MARKER}"
+  puts "You're #{PLAYER_MARKER}. Computer is #{COMPUTER_MARKER}"
   puts ''
   puts '     |     |'
   puts "  #{brd[1]}  |  #{brd[2]}  |  #{brd[3]}"
@@ -76,6 +76,10 @@ def someone_won?(brd)
   !!detect_winner(brd)
 end
 
+def score(player_score, computer_score)
+  prompt "Player score: #{player_score}; Computer score: #{computer_score}"
+end
+
 def detect_winner(brd)
   WINNING_LINES.each do |line|
     #    if brd[line[0]] == PLAYER_MARKER &&
@@ -114,6 +118,8 @@ loop do
   else
     prompt 'its a tie!'
   end
+
+  score(board)
 
   prompt 'Play again? ( y or n)'
   answer = gets.chomp
