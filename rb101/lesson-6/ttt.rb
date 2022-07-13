@@ -82,15 +82,6 @@ end
 
 def detect_winner(brd)
   WINNING_LINES.each do |line|
-    #    if brd[line[0]] == PLAYER_MARKER &&
-    #       brd[line[1]] == PLAYER_MARKER &&
-    #       brd[line[2]] == PLAYER_MARKER
-    #      return 'Player'
-    #    elsif brd[line[0]] == COMPUTER_MARKER &&
-    #          brd[line[1]] == COMPUTER_MARKER &&
-    #          brd[line[2]] == COMPUTER_MARKER
-    #      return 'Computer'
-    #    end
     if brd.values_at(*line).count(PLAYER_MARKER) == 3
       return 'Player'
     elsif brd.values_at(*line).count(COMPUTER_MARKER) == 3
@@ -100,6 +91,8 @@ def detect_winner(brd)
   nil
 end
 
+player_score = 0
+computer_score = 0
 loop do
   board = initialize_board
 
@@ -115,11 +108,16 @@ loop do
 
   if someone_won?(board)
     prompt "#{detect_winner(board)} won!"
+    if detect_winner(board) == 'Player'
+      player_score += 1
+    else
+      computer_score += 1
+    end
   else
     prompt 'its a tie!'
   end
 
-  score(board)
+  score(player_score, computer_score)
 
   prompt 'Play again? ( y or n)'
   answer = gets.chomp
