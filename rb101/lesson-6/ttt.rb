@@ -91,9 +91,59 @@ def detect_winner(brd)
   nil
 end
 
+=begin
 def find_at_risk_square(line, board)
   if board.values_at(*line).count('X') == 2
     board.select{|k,v| line.include?(k) && v == ' '}.keys.first
+  else
+    nil
+  end
+end
+
+def computer_places_piece!(brd)
+  square = nil
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd)
+    break if square
+  end
+
+  if !square
+    square = empty_squares(brd).sample
+  end
+
+  brd[square] = COMPUTER_MARKER
+end
+
+=end
+
+def computer_places_piece!(brd)
+  square = nil
+
+  # defense first
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd, PLAYER_MARKER)
+    break if square
+  end
+
+  # offense
+  if !square
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, COMPUTER_MARKER)
+      break if square
+    end
+  end
+
+  # just pick a square
+  if !square
+    square = empty_squares(brd).sample
+  end
+
+  brd[square] = COMPUTER_MARKER
+end
+
+def find_at_risk_square(line, board)
+  if board.values_at(*line).count(PLAYER_MARKER) == 2
+    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
   else
     nil
   end
