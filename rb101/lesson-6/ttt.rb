@@ -1,3 +1,5 @@
+require 'pry'
+
 # frozen_string_literal: true
 
 WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + [[1, 5, 9], [3, 5, 7]]
@@ -63,11 +65,6 @@ def player_places_piece!(brd)
   brd[square] = PLAYER_MARKER
 end
 
-def computer_places_piece!(brd)
-  square = empty_squares(brd).sample
-  brd[square] = COMPUTER_MARKER
-end
-
 def board_full?(brd)
   empty_squares(brd).empty?
 end
@@ -89,6 +86,14 @@ def detect_winner(brd)
     end
   end
   nil
+end
+
+def find_at_risk_square(line, board, marker)
+  if board.values_at(*line).count(marker) == 2
+    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+  else
+    nil
+  end
 end
 
 def computer_places_piece!(brd)
@@ -114,14 +119,6 @@ def computer_places_piece!(brd)
   end
 
   brd[square] = COMPUTER_MARKER
-end
-
-def find_at_risk_square(line, board, marker)
-  if board.values_at(*line).count(marker) == 2
-    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
-  else
-    nil
-  end
 end
 
 player_score = 0
