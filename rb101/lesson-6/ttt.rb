@@ -87,6 +87,24 @@ def detect_winner(brd)
   end
   nil
 end
+
+def offensive_move(line, board)
+  if board.values_at(*line).count(COMPUTER_MARKER) == 2
+    board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
+  else
+    nil
+  end
+end
+
+def defensive_move(line, board)
+  if board.values_at(*line).count(PLAYER_MARKER) == 2
+    board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
+  else
+    nil
+  end
+end
+
+
 =begin
 def find_at_risk_square(line, board, marker)
   if board.values_at(*line).count(marker) == 2
