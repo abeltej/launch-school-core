@@ -1,5 +1,3 @@
-require 'pry'
-
 # frozen_string_literal: true
 
 WINNING_LINES = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] + [[1, 4, 7], [2, 5, 8], [3, 6, 9]] + [[1, 5, 9], [3, 5, 7]]
@@ -104,29 +102,19 @@ def defensive_move(line, board)
   end
 end
 
-
-=begin
-def find_at_risk_square(line, board, marker)
-  if board.values_at(*line).count(marker) == 2
-    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
-  else
-    nil
-  end
-end
-
 def computer_places_piece!(brd)
   square = nil
 
-  # defense first
+  # offense first
   WINNING_LINES.each do |line|
-    square = find_at_risk_square(line, brd, PLAYER_MARKER)
+    square = offensive_move(line, brd)
     break if square
   end
 
-  # offense
+  # defense
   if !square
     WINNING_LINES.each do |line|
-      square = find_at_risk_square(line, brd, COMPUTER_MARKER)
+      square = defensive_move(line, brd)
       break if square
     end
   end
@@ -138,7 +126,6 @@ def computer_places_piece!(brd)
 
   brd[square] = COMPUTER_MARKER
 end
-=end
 
 player_score = 0
 computer_score = 0
