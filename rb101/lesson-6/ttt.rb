@@ -87,7 +87,7 @@ def detect_winner(brd)
   end
   nil
 end
-
+=begin
 def find_at_risk_square(line, board, marker)
   if board.values_at(*line).count(marker) == 2
     board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
@@ -120,6 +120,7 @@ def computer_places_piece!(brd)
 
   brd[square] = COMPUTER_MARKER
 end
+=end
 
 player_score = 0
 computer_score = 0
