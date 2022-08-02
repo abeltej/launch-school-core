@@ -39,7 +39,7 @@ def empty_squares(brd)
   brd.keys.select { |num| brd[num] == INITIAL_MARKER }
 end
 
-def joinor(arr, delimiter=', ', word='or')
+def joinor(arr, delimiter = ', ', word = 'or')
   case arr.size
   when 0 then ''
   when 1 then arr.first
@@ -48,6 +48,23 @@ def joinor(arr, delimiter=', ', word='or')
     arr[-1] = "#{word} #{arr.last}"
     arr.join(delimiter)
   end
+end
+
+def who_is_player_one
+  first_move = ''
+  loop do
+    prompt 'Do you want to go first? (y/n)'
+    first_move = gets.chomp.downcase
+    break if first_move.start_with?(y) || first_move.start_with?(n)
+
+    prompt 'incorrect input: select (y/n)'
+  end
+  first_move
+end
+
+def player_one
+  player_one_is = who_is_player_one
+  return true if player_one_is.start_with?(y)
 end
 
 def player_places_piece!(brd)
@@ -61,6 +78,14 @@ def player_places_piece!(brd)
   end
 
   brd[square] = PLAYER_MARKER
+end
+
+def first_move_on_board(brd, player)
+  if player = "Player"
+    player_places_piece!
+  else
+    computer_places_piece!
+  end
 end
 
 def board_full?(brd)
@@ -77,29 +102,23 @@ end
 
 def detect_winner(brd)
   WINNING_LINES.each do |line|
-    if brd.values_at(*line).count(PLAYER_MARKER) == 3
-      return 'Player'
-    elsif brd.values_at(*line).count(COMPUTER_MARKER) == 3
-      return 'Computer'
-    end
+    return 'Player' if brd.values_at(*line).count(PLAYER_MARKER) == 3
+
+    return 'Computer' if brd.values_at(*line).count(COMPUTER_MARKER) == 3
   end
   nil
 end
 
 def offensive_move(line, board)
-  if board.values_at(*line).count(COMPUTER_MARKER) == 2
-    board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
-  else
-    nil
-  end
+  return unless board.values_at(*line).count(COMPUTER_MARKER) == 2
+
+  board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
 end
 
 def defensive_move(line, board)
-  if board.values_at(*line).count(PLAYER_MARKER) == 2
-    board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
-  else
-    nil
-  end
+  return unless board.values_at(*line).count(PLAYER_MARKER) == 2
+
+  board.select { |key, value| line.include?(key) && value == INITIAL_MARKER }.keys.first
 end
 
 def computer_places_piece!(brd)
@@ -112,23 +131,25 @@ def computer_places_piece!(brd)
   end
 
   # defense
-  if !square
+  unless square
     WINNING_LINES.each do |line|
       square = defensive_move(line, brd)
       break if square
     end
   end
 
+  # middle square priority
+  square = 5 if !square && empty_squares(brd).include?(5)
+
   # just pick a square
-  if !square
-    square = empty_squares(brd).sample
-  end
+  square ||= empty_squares(brd).sample
 
   brd[square] = COMPUTER_MARKER
 end
 
 player_score = 0
 computer_score = 0
+
 loop do
   board = initialize_board
 

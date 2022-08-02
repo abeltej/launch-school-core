@@ -1,7 +1,3 @@
-def initialize_deck
+def initialize_deck; end
 
-end
-
-def deal_deck
-
-end
+def deal_deck; end
