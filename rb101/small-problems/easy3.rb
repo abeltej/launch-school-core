@@ -71,6 +71,18 @@ Example
 ==> 23 / 17 = 1
 ==> 23 % 17 = 6
 ==> 23 ** 17 = 141050039560662968926103
+
+1. Read problem out loud.
+2. Input/Output: 2 positive integer
+                 integer representing the result of operations
+3. Examples/Rules:
+  output are integers
+  addition, subtraction, product, quotient, remainder, and power are the operations
+
+
+4. Steps:
+5. Helper Methods: (as needed)
+
 =end
 
 =begin
